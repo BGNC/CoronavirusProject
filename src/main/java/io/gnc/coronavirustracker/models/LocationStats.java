@@ -1,38 +1,42 @@
 package io.gnc.coronavirustracker.models;
 
-import java.util.Objects;
-
 public class LocationStats {
+
     private String state;
     private String country;
     private int latestTotalCases;
+    private int diffFromPrevDay;
 
-    public LocationStats(){
-
+    public int getDiffFromPrevDay() {
+        return diffFromPrevDay;
     }
 
-    public void setState(String state) {
-        this.state = state;
-    }
-
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public void setLatestTotalCases(int latestTotalCases) {
-        this.latestTotalCases = latestTotalCases;
+    public void setDiffFromPrevDay(int diffFromPrevDay) {
+        this.diffFromPrevDay = diffFromPrevDay;
     }
 
     public String getState() {
         return state;
     }
 
+    public void setState(String state) {
+        this.state = state;
+    }
+
     public String getCountry() {
         return country;
     }
 
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
     public int getLatestTotalCases() {
         return latestTotalCases;
+    }
+
+    public void setLatestTotalCases(int latestTotalCases) {
+        this.latestTotalCases = latestTotalCases;
     }
 
     @Override
@@ -43,19 +47,4 @@ public class LocationStats {
                 ", latestTotalCases=" + latestTotalCases +
                 '}';
     }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        LocationStats that = (LocationStats) o;
-        return latestTotalCases == that.latestTotalCases && Objects.equals(state, that.state) && Objects.equals(country, that.country);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(state, country, latestTotalCases);
-    }
-
-
 }
